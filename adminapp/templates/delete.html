@@ -1,0 +1,88 @@
+{% extends "baseadmin.html" %} {% block content %}
+<div class="container-fluid ht p-0 m-0">
+    <h1 class="text-center border-bottom mb-5 py-3">Edit/Delete</h1>
+    <div class="container-sm">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Course Type</th>
+                    <th>Language</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.duration}}</td>
+                    <td>{{i.description}}</td>
+                    <td>
+                        <img
+                            src="{{i.image.url}}"
+                            alt=""
+                            style="height: 60px; width: 60px"
+                        />
+                    </td>
+                    <td>{{i.coursetype}}</td>
+                    <td>{{i.language}}</td>
+                    <td>
+                        {% comment %}
+                        <button class="noselect">
+                            <a
+                                href="deleteRow/{{i.id}}"
+                                class="text-decoration-none"
+                            >
+                                <span class="text">Delete </span></a
+                            ><span class="icon"
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+                                    ></path></svg
+                            ></span>
+                        </button>
+                        {% endcomment %}
+
+                        <a
+                            href="deleteRow/{{i.id}}"
+                            class="dbtn text-decoration-none fw-bold"
+                            >DELETE</a
+                        >
+                    </td>
+                    <td>
+                        <a
+                            href="editRow/{{i.id}}"
+                            class="ebtn text-decoration-none fw-bold"
+                            >EDIT</a
+                        >
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'adminhome' %}" class="backbtn text-decoration-none"
+            >&larr;Back to Home</a
+        >
+    </div>
+</div>
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="p-0">
+        <path
+            fill="#0099ff"
+            fill-opacity="1"
+            d="M0,32L80,74.7C160,117,320,203,480,208C640,213,800,139,960,138.7C1120,139,1280,213,1360,250.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+    </svg>
+</div>
+
+{% endblock %}

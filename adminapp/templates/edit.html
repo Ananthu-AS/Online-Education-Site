@@ -1,0 +1,84 @@
+{% extends "baseadmin.html" %} {% block content %}
+<div class="container-fluid ht m-0 p-0">
+    <div class="container-fluid m-0 p-0">
+        <h2 class="text-center border-bottom py-3">Edit</h2>
+        <div class="w-50 mx-auto pt-3">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- <table>
+                            {{courseform.as_table}} {{languageform.as_table}}
+                            {{priceform.as_table}} {{coursetypeform.as_table}}
+                        </table> -->
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        class="mb-3 form-control"
+                        value="{{data.name}}"
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Duration"
+                        name="duration"
+                        class="mb-3 form-control"
+                        value="{{data.duration}}"
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Description"
+                        name="description"
+                        class="mb-3 form-control"
+                        value="{{data.description}}"
+                    />
+                </div>
+                <div>
+                    <input
+                        type="file"
+                        placeholder=""
+                        name="image"
+                        class="mb-3 form-control"
+                        value=""
+                    />
+                </div>
+                <!-- <div>
+                            <select class="form-select mb-3">
+                                <option selected>Open this select menu</option>
+                                {% for i in lang%}
+                                <option value="{{i.language}}" name="language">
+                                    {{i.language}}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div> -->
+                <!-- <div>
+                            <select class="form-select mb-3">
+                                <option selected>Open this select menu</option>
+                                {% for i in type%}
+                                <option value="{{i.type}}">{{i.type}}</option>
+                                {% endfor %}
+                            </select>
+                        </div> -->
+                <div>
+                    <div class="w-25 m-end">
+                        <input type="submit" class="form-control bg-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="p-0">
+        <path
+            fill="#0099ff"
+            fill-opacity="1"
+            d="M0,32L80,74.7C160,117,320,203,480,208C640,213,800,139,960,138.7C1120,139,1280,213,1360,250.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+    </svg>
+</div>
+{% endblock %}

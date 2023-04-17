@@ -1,0 +1,53 @@
+{% extends "baselogin.html" %} {% block content %}
+<div class="container-fluid m-0 p-0">
+    <div
+        class="tab-pane fade show active d-flex p-0 m-0 justify-content-evenly"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+    >
+        <div class="card p-0 m-0 mt-5" style="width: 30rem">
+            <img
+                src="{{data.course.image.url}}"
+                class="card-img-top"
+                alt="..."
+            />
+            <div class="card-body">
+                <h5 class="card-title">{{data.course.name}}</h5>
+                <p class="card-text">
+                    <small>{{data.course.description}}</small>
+                </p>
+
+                <p class="card-text">
+                    <strong>{{data.price}} &#x20B9;</strong>
+                    {% comment %}
+                    <a
+                        href="{% url 'app_create' data.id %}"
+                        class="btn btn-primary ms-5"
+                        >Buy</a
+                    >
+                    {% endcomment %}
+                </p>
+                <form action="{% url 'app_charge' data.id %}" method="POST">
+                    {% csrf_token %}
+                    <script
+                        src="https://checkout.razorpay.com/v1/checkout.js"
+                        data-key="rzp_test_acgCaQhDp1w1uK"
+                        data-amount="{{amount}}"
+                        data-name="Virtual Learn"
+                        data-description="Purchase Description"
+                        data-image="vk.jpg"
+                        data-netbanking="true"
+                        data-description="Tron Legacy"
+                        data-prefill.name="Harshil Mathur"
+                        data-prefill.email="harshil@razorpay.com"
+                        data-prefill.contact="8086555027"
+                        data-notes.shopping_order_id="21"
+                    ></script>
+                    <input type="hidden" name="shopping_order_id" value="21" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

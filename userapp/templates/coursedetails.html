@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LEARN</title>
+        <!-- Bootstrap link for CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        />
+
+        <style>
+            /* Internal CSS */
+            .s1 {
+                height: 340px;
+                background-color: rgb(30, 47, 47);
+            }
+            img {
+                height: 240px;
+            }
+        </style>
+    </head>
+    <body>
+        {% load static %}
+        <h1>hello</h1>
+        <div class="container-fluid row justify-content-around s1">
+            <div class="ms-5 col-6">
+                <p class="text-white">
+                    Development &gt; Programming Languages &gt; Python
+                </p>
+                <h2 class="text-white">
+                    100 Days of Code: The Complete Python Pro Bootcamp for 2023
+                </h2>
+                <p class="text-white">
+                    Master Python by building 100 projects in 100 days. Learn
+                    data science, automation, build websites, games and apps!
+                </p>
+            </div>
+
+            <div class="col-3 bg-white border">
+                <div style="width: 200px; height: 150px">
+                    <img src="{% static 'images/py.png' %}" />
+                </div>
+                <div>
+                    <h2>₹549</h2>
+                    <p class="text-decoration-line-through">₹3,699</p>
+                    <p>Discount 85% off</p>
+                    <a href="" class="btn btn-primary w-100">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
